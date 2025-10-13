@@ -1,6 +1,6 @@
 ---
 AutoNoteMover: disable
-Status:
+Status: active
 Autor: Beatriz Pestana Teixeira || Marcus Vinicius da Silva Barros Fioravante ||  Débora Meyhofer Ferreira
 Ano: "2025"
 Keywords: lorawan | lora | snr | packet-loss
@@ -86,4 +86,12 @@ A comunicação sem fio aproveita as características de longo alcance da camada
 
 ### 3. Classe C
 
-- A classe C tem o maior período de recepção entre as classes de dispositivos, a sua janela de recepção é continua e fechada em caso de transmissão
+- A classe C tem o maior período de recepção entre as classes de dispositivos, a sua janela de recepção é continua e fechada em caso de transmissão.
+![[Pasted image 20251013110943.png]]
+
+----
+
+# Segurança da Rede
+
+- A rede LoraWan utiliza de duas camadas de proteção para garantir a segurança da rede, a primeira visa garantir a autenticidade do nó na rede, e a segunda garante que o operador da rede não tenha acesso aos dados do aplicativo do uso final. Para isso, é utilizado uma encriptação do tipo AES3(advanced encryption standard) em trocas de chave de identificador IEEE EUI64 (formato de identificador exclusivo extendido de 64 bits) Existem compensações em cada escolha de tecnologia, exeto os recursos de LoraWan. Na arquitetura de rede, classe de dispositivos, segurança, escalabilidade para capacidade e a otimização para mobilidade onde aborda a mais ampla variedade de aplicações IoT em potencial.
+
