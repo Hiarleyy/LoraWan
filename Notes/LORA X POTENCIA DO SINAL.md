@@ -20,3 +20,70 @@ Esse trabalho se propõe não apenas a entender o funcionamento da tecnologia Lo
 
 ---
 
+# Tópicos principais LoraWan
+
+## Spreading Factor
+
+LoRa é baseado na tecnologia Chirp Spread Spectrum (CSS), onde os chirps (também conhecidos como símbolos) são os portadores de dados.
+
+O fator de espalhamento controla a taxa de chirp e, portanto, a velocidade de transmissão de dados. **Fatores de espalhamento mais baixos** significam **chirps mais rápidos** e, portanto, uma **taxa de transmissão de dados mais alta** . Para cada aumento no fator de espalhamento, a taxa de varredura do chirp é reduzida pela metade e, portanto, a taxa de transmissão de dados é reduzida pela metade.
+
+Para uma explicação visual, assista a [este vídeo](https://www.youtube.com/watch?v=dxYY097QNs0) sobre sons LoRa.
+
+Fatores de espalhamento mais baixos reduzem o alcance das transmissões LoRa, pois reduzem o ganho de processamento e aumentam a taxa de bits. Alterar o fator de espalhamento permite que a rede aumente ou diminua a taxa de dados para cada dispositivo final, em detrimento do alcance.
+
+A rede também utiliza fatores de espalhamento para controlar o congestionamento. Os fatores de espalhamento são ortogonais, de modo que sinais modulados com diferentes fatores de espalhamento e transmitidos no mesmo canal de frequência ao mesmo tempo não interferem entre si.
+
+## Taxa de dados
+Comparado a um fator de espalhamento mais alto, um fator de espalhamento mais baixo proporciona uma taxa de bits mais alta para uma largura de banda e taxa de codificação fixas. Por exemplo, o SF7 proporciona uma taxa de bits mais alta que o SF12.
+
+Dobrar a largura de banda também dobra a taxa de bits para um fator de espalhamento fixo e a taxa de codificação.
+
+A tabela a seguir apresenta taxas de bits calculadas com SF7 e Taxa de Codificação (CR) = 1 para larguras de banda de 125, 250 e 500 kHz.
+
+## Questões
+
+#### 1. Qual fator de espalhamento fornece a maior sensibilidade do receptor?
+- SF9
+- SF10
+- SF11
+- **SF12**
+#### 2. Qual fator de espalhamento fornece a maior taxa de bits?
+- **SF7**
+- SF8
+- SF9
+- SF10
+#### 3. Qual fator de dispersão proporciona a maior duração de bateria para um dispositivo final?
+
+- **SF7**
+- SF8
+- SF9
+- SF10
+
+	_Fatores de espalhamento mais baixos proporcionam taxas de bits mais altas, resultando em um TOA mais curto. Um TOA mais curto resulta em maior vida útil da bateria, pois o transceptor de rádio fica ativo por um período mais curto._
+
+#### 4. Para a mesma quantidade de dados e largura de banda, qual fator de dispersão resulta no maior tempo no ar?
+- SF7
+- SF8
+- SF9
+- **SF10**
+---
+# Arquitetura LoraWan
+
+A arquitetura de rede LoraWan é implantada em uma topologia de rede de estrela, onde diversos **gateways** encaminham mensagens para os **endDevices** para um servidor central da rede. ==Os gateways são conectados ao servidor via conexão IP padrão== e atuam como uma ponte transparente, convertendo os pacotes RF em pacotes IP e vice-versa conforme a figura: 
+![[Pasted image 20251013105236.png]]
+
+A comunicação sem fio aproveita as características de longo alcance da camada física para permitir um link de salto único, do **endDevice** para um ou vários **gateways**. Todos os modos são capazes de realizar uma comunicação bidirecional, com suporte para grupos de endereçamento **multicast** (método de transmissão de um pacote de dados para múltiplos destinos ao mesmo tempo), a fim de fazer o uso eficiente do espectro durante tarefas como atualizações do Firmware FOTA. Os dispositivos lora são categorizados por classe e são definidos em 3 tipos de classe diferentes separados entre A, B e C.
+
+### 1. Classe A
+
+- A classe A tem como particularidade a ==espera de uma resposta de um período== de 2 segundos após o envio, essa classe é a que menos consome energia dentre as 3 classes, pois apenas recebe a informação quando a mensagem chega com sucesso em um **gateway**
+
+![[Pasted image 20251013110200.png]]
+### 2. Classe B
+- A classe B tem a janela de recebimento de dados configurada, o dispositivo recebe um despertar do gateway em períodos pré-determinados e  configurados através de mensagens de **beacon** emitidas pelo **gateway**, desta forma há garantia de que o dispositivo está apto para receber os pacotes,==portanto se classifica como uma verificação para evitar perca de pacotes para um **endDevice** que está inativo==.
+![[Pasted image 20251013110807.png]]
+
+### 3. Classe C
+
+- A classe C tem o maior período de recepção entre as classes de dispositivos, a sua janela de recepção é continua e fechada em caso de transmissão
