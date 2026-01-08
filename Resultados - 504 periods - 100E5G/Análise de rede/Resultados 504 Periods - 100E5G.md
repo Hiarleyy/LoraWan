@@ -1,37 +1,29 @@
-![[03_pressao_temporal.png]]
+![[01_topologia_rede.png]]
 
-![[08_sinr_distribuicao.png]]
+![[02_mapa_qualidade.png]]
 
-![[10_sinr_vs_temperatura.png]]
+![[03_mapa_spreading_factor.png]]
 
-![[15_matriz_correlacao.png]]
+![[04_distancia_vs_sinr.png]]
 
-![[18_temperatura_vs_umidade.png]]
+![[05_sinr_por_sf.png]]
 
-![[19_sf_distribuicao.png]]
+![[06_distancia_por_sf.png]]
 
-![[20_evolucao_conjunta.png]]
+![[07_heatmap_potencia.png]]
 
-![[01_temperatura_temporal.png]]
+![[08_transmissoes_por_node.png]]
 
-![[02_umidade_temporal.png]]
+![[09_performance_por_faixa.png]]
 
-![[04_vento_temporal.png]]
+![[10_sinr_temporal.png]]
 
-![[05_temperatura_distribuicao.png]]
+![[11_top_bottom_nodes.png]]
 
-![[06_umidade_distribuicao.png]]
+![[12_correlacao_rede.png]]
 
-![[09_sinr_vs_distancia.png]]
+![[13_distribuicao_qualidade.png]]
 
-![[11_sinr_vs_umidade.png]]
+![[14_densidade_nodes.png]]
 
-![[12_sinr_qualidade.png]]
-
-![[13_pdr_temporal.png]]
-
-![[14_pacotes_temporal.png]]
-
-![[16_distancia_distribuicao.png]]
-
-![[17_potencia_distribuicao.png]]
+![[15_estatisticas_top20.png]]
